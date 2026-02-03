@@ -31,6 +31,7 @@ Chrome extension to download arXiv PDFs using the paper title as the filename.
 📝 [기술 블로그 글 보러 가기 (Tistory)](https://tori-notepad.tistory.com/40)  
 👉 개발 배경, 확장 프로그램 구조 등을 담았습니다!
 
----
 
-Made with ❤️ by YunseoDo
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=DoYunseo/arXiv-save-as-Title&type=date&legend=top-left)](https://www.star-history.com/#DoYunseo/arXiv-save-as-Title&type=date&legend=top-left)
