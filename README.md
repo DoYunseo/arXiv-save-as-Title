@@ -61,6 +61,8 @@ Attention_Is_All_You_Need_Vaswani_2017.pdf
 
 The extension does not collect or transmit personal data. Paper metadata is processed locally to generate filenames, and preferences are stored using `chrome.storage.sync`.
 
+Read the full [Privacy Policy](PRIVACY.md).
+
 ## Learn more / 자세히 보기
 
 📝 [기술 블로그 글 보러 가기 (Tistory)](https://tori-notepad.tistory.com/40)

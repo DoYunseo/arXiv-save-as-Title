@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 128px; height: 128px; margin: 0; overflow: hidden; }
+    body {
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #176b32, #2d9850);
+      font-family: Arial, sans-serif;
+    }
+    .paper {
+      position: relative;
+      width: 68px;
+      height: 82px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 9px 22px rgba(4, 42, 20, .28);
+    }
+    .clip {
+      position: absolute;
+      top: -7px;
+      left: 20px;
+      width: 28px;
+      height: 15px;
+      border: 5px solid #dfe9e1;
+      border-radius: 8px 8px 4px 4px;
+      background: #fff;
+    }
+    .line {
+      position: absolute;
+      left: 15px;
+      width: 38px;
+      height: 5px;
+      border-radius: 3px;
+      background: #dce7df;
+    }
+    .line.one { top: 24px; }
+    .line.two { top: 36px; width: 31px; }
+    .arrow {
+      position: absolute;
+      left: 26px;
+      top: 48px;
+      width: 16px;
+      height: 18px;
+      border-left: 5px solid #278443;
+    }
+    .arrow::before,
+    .arrow::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      width: 12px;
+      height: 5px;
+      border-radius: 3px;
+      background: #278443;
+    }
+    .arrow::before { left: -10px; transform: rotate(45deg); }
+    .arrow::after { left: -1px; transform: rotate(-45deg); }
+  </style>
+</head>
+<body>
+  <div class="paper" aria-hidden="true">
+    <div class="clip"></div>
+    <div class="line one"></div>
+    <div class="line two"></div>
+    <div class="arrow"></div>
+  </div>
+</body>
+</html>
