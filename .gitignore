@@ -14,4 +14,5 @@ images/legacy/
 # Local-only Markdown documentation
 *.md
 !PRIVACY.md
+!README.md
 local-docs/
