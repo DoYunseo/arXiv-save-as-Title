@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>arXiv Save as Title 설정</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { max-width: 620px; margin: 48px auto; padding: 0 24px; color: #171717; background: #fff; font: 15px/1.5 system-ui, -apple-system, sans-serif; }
+    h1 { margin: 0 0 5px; font-size: 27px; letter-spacing: -.5px; }
+    .hint { margin: 0 0 30px; color: #737373; }
+    fieldset { min-width: 0; margin: 0 0 28px; padding: 0; border: 0; }
+    [hidden] { display: none !important; }
+    legend { margin-bottom: 11px; padding: 0; font-size: 16px; font-weight: 750; }
+    .choices { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+    .bracket-choices { grid-template-columns: repeat(3, 1fr); }
+    .choice-wide { grid-column: 1 / -1; }
+    .choice { position: relative; display: block; cursor: pointer; }
+    .choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .choice span { display: flex; min-height: 48px; align-items: center; justify-content: center; padding: 10px 12px; border: 1px solid #d4d4d4; border-radius: 10px; background: #fafafa; color: #404040; font-weight: 650; text-align: center; transition: border-color .15s, background .15s, color .15s, box-shadow .15s; }
+    .choice input:checked + span { border-color: #278443; background: #eef8f0; color: #176b32; box-shadow: 0 0 0 1px #278443; }
+    .choice input:focus-visible + span { outline: 2px solid #1a73e8; outline-offset: 2px; }
+    .preview { margin: 4px 0 24px; padding: 16px; border: 1px solid #e5e5e5; border-radius: 11px; background: #f5f5f5; overflow-wrap: anywhere; }
+    .preview strong { display: block; margin-bottom: 5px; color: #525252; }
+    #preview { font: 14px ui-monospace, SFMono-Regular, monospace; }
+    .save-location { display: flex; align-items: center; gap: 9px; margin-bottom: 24px; cursor: pointer; }
+    .save-location input { width: 18px; height: 18px; accent-color: #278443; }
+    .save-row { display: flex; align-items: center; gap: 12px; }
+    #save { padding: 10px 16px; color: #fff; background: #278443; border: 0; border-radius: 8px; font-weight: 750; cursor: pointer; }
+    #save:hover { background: #1f7037; }
+    #status { min-height: 22px; color: #278443; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>논문 PDF 파일명 설정</h1>
+  <p class="hint">파일명 순서와 저자 표시 방식을 선택하세요.</p>
+
+  <fieldset>
+    <legend>파일명 형식</legend>
+    <div class="choices">
+      <label class="choice"><input type="radio" name="filenameTemplate" value="{author}_{year}_{title}"><span>저자 · 연도 · 제목</span></label>
+      <label class="choice"><input type="radio" name="filenameTemplate" value="{title}_{author}_{year}"><span>제목 · 저자 · 연도</span></label>
+      <label class="choice"><input type="radio" name="filenameTemplate" value="{year}_{author}_{title}"><span>연도 · 저자 · 제목</span></label>
+      <label class="choice"><input type="radio" name="filenameTemplate" value="{title}"><span>제목만</span></label>
+      <label class="choice choice-wide"><input type="radio" name="filenameTemplate" value="{bracketOpen}{author}{year}{bracketClose} {title}"><span>(저자연도) 제목</span></label>
+    </div>
+  </fieldset>
+
+  <fieldset id="bracketOptions" hidden>
+    <legend>묶음 기호</legend>
+    <div class="choices bracket-choices">
+      <label class="choice"><input type="radio" name="bracketStyle" value="parentheses"><span>( ) 소괄호</span></label>
+      <label class="choice"><input type="radio" name="bracketStyle" value="square"><span>[ ] 대괄호</span></label>
+      <label class="choice"><input type="radio" name="bracketStyle" value="curly"><span>{ } 중괄호</span></label>
+    </div>
+  </fieldset>
+
+  <fieldset id="authorOptions">
+    <legend>저자명 표시</legend>
+    <div class="choices">
+      <label class="choice"><input type="radio" name="authorNameFormat" value="last"><span>Last Name</span></label>
+      <label class="choice"><input type="radio" name="authorNameFormat" value="full"><span>Full Name</span></label>
+    </div>
+  </fieldset>
+
+  <div class="preview" aria-live="polite"><strong>미리보기</strong><span id="preview"></span></div>
+  <label class="save-location"><input type="checkbox" id="saveAs">다운로드할 때 저장 위치 묻기</label>
+  <div class="save-row"><button id="save" type="button">설정 저장</button><span id="status" role="status"></span></div>
+  <script src="options.js"></script>
+</body>
+</html>

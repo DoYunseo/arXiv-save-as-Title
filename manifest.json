@@ -1,21 +1,36 @@
 {
-    "manifest_version": 3,
-    "name": "arXiv Save as Title",
-    "version": "1.0",
-    "description": "Adds a button to save arXiv PDFs with the paper title as filename.",
-    "permissions": ["downloads", "scripting"],
-    "host_permissions": ["https://arxiv.org/*"],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "content_scripts": [
-      {
-        "matches": ["https://arxiv.org/abs/*"],
-        "js": ["content.js"]
-      }
-    ],
-    "action": {
-      "default_title": "arXiv Save as Title"
+  "manifest_version": 3,
+  "name": "arXiv Save as Title",
+  "version": "1.3.7",
+  "author": "Yunseo Do",
+  "description": "Save arXiv PDFs with a customizable title, author, and year filename.",
+  "permissions": ["downloads", "storage", "scripting"],
+  "host_permissions": ["https://arxiv.org/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://arxiv.org/abs/*"],
+      "js": ["content.js"]
     }
+  ],
+  "action": {
+    "default_title": "파일명 설정",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
   }
-  
+}
