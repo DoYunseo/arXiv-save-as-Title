@@ -1,2 +1,17 @@
+# macOS metadata
 .DS_Store
+**/.DS_Store
+
+# Generated Chrome Web Store packages
 dist/
+
+# Chrome Web Store screenshots are kept locally only
+images/screenshots/
+
+# Superseded icons kept only for local reference
+images/legacy/
+
+# Local-only Markdown documentation
+*.md
+!PRIVACY.md
+local-docs/
