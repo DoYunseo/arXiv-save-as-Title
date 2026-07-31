@@ -2,6 +2,9 @@
 
 A Chrome extension that downloads arXiv PDFs with readable, customizable filenames.
 
+Download the Chrome extension! : [HERE](https://chromewebstore.google.com/detail/arxiv-save-as-title/kjdkgfhkdikbcklgdjkfbjgloafjmjoc)
+
+
 <img width="1357" alt="arXiv Save as Title" src="https://github.com/user-attachments/assets/1f176a1b-2269-4490-992a-6317ee33355f" />
 
 ## Features
