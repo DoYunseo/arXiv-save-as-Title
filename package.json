@@ -1,0 +1,14 @@
+{
+  "name": "arxiv-save-as-title",
+  "version": "1.4.0",
+  "private": true,
+  "description": "Tests and development tooling for the arXiv Save as Title extension",
+  "scripts": {
+    "test": "node --test",
+    "check": "node scripts/validate-extension.js && node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

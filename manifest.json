@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "arXiv Save as Title",
-  "version": "1.3.8",
+  "name": "__MSG_extensionName__",
+  "version": "1.4.0",
   "author": "Yunseo Do",
-  "description": "Save arXiv PDFs with a customizable title, author, and year filename.",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
   "permissions": ["downloads", "storage", "scripting"],
   "host_permissions": ["https://arxiv.org/*"],
   "background": {
@@ -16,11 +17,11 @@
   "content_scripts": [
     {
       "matches": ["https://arxiv.org/abs/*"],
-      "js": ["content.js"]
+      "js": ["filename.js", "content.js"]
     }
   ],
   "action": {
-    "default_title": "파일명 설정",
+    "default_title": "__MSG_actionTitle__",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "images/icons/icon16.png",

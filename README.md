@@ -2,8 +2,7 @@
 
 A Chrome extension that downloads arXiv PDFs with readable, customizable filenames.
 
-Download the Chrome extension! : [HERE](https://chromewebstore.google.com/detail/arxiv-save-as-title/kjdkgfhkdikbcklgdjkfbjgloafjmjoc)
-
+[Install from the Chrome Web Store](https://chromewebstore.google.com/detail/arxiv-save-as-title/kjdkgfhkdikbcklgdjkfbjgloafjmjoc)
 
 <img width="1357" alt="arXiv Save as Title" src="https://github.com/user-attachments/assets/1f176a1b-2269-4490-992a-6317ee33355f" />
 
@@ -16,6 +15,7 @@ Download the Chrome extension! : [HERE](https://chromewebstore.google.com/detail
 - Shows a live filename preview before saving
 - Saves preferences with Chrome Sync
 - Lets you choose whether Chrome asks for a download location
+- Provides an accessible interface with Auto, English, and Korean language options
 
 ### Filename examples
 
@@ -65,6 +65,29 @@ Attention_Is_All_You_Need_Vaswani_2017.pdf
 The extension does not collect or transmit personal data. Paper metadata is processed locally to generate filenames, and preferences are stored using `chrome.storage.sync`.
 
 Read the full [Privacy Policy](PRIVACY.md).
+
+## Related projects
+
+Several open-source projects improve adjacent parts of the academic-paper workflow:
+
+- [arxiv-utils](https://github.com/j3soon/arxiv-utils) provides a broader, cross-browser arXiv toolkit with meaningful tab titles, PDF downloads, navigation shortcuts, and integrations with services such as ar5iv.
+- [EasyOA](https://github.com/izhx/easy-oa) improves navigation between PDF and abstract pages across arXiv, OpenReview, ACL Anthology, CVF, PMLR, NeurIPS, and other open-access sites.
+- [Paper PDF Renamer](https://github.com/helloimlix/Paper-PDF-Renamer) supports configurable filenames for arXiv and OpenReview downloads and includes a tool for renaming previously downloaded PDFs.
+
+These projects share related goals but have different scopes. **arXiv Save as Title** focuses on a lightweight, accessible Chrome experience for downloading arXiv PDFs with clear filename presets and English or Korean UI options. We welcome opportunities to share test cases, exchange implementation ideas, and collaborate on compatible improvements.
+
+## Development and contributing
+
+Node.js 20 or newer is required for the development checks. The extension itself has no runtime dependencies or build step.
+
+```sh
+npm install
+npm run check
+```
+
+`npm run check` validates manifest references and translations, then runs the filename unit tests. The same checks run automatically on every pull request through GitHub Actions.
+
+Bug reports, translations, accessibility improvements, tests, and code contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Please report vulnerabilities privately as described in [SECURITY.md](SECURITY.md).
 
 ## Learn more / 자세히 보기
 

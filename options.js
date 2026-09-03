@@ -18,6 +18,23 @@ const preview = document.getElementById("preview");
 const status = document.getElementById("status");
 const bracketOptions = document.getElementById("bracketOptions");
 const authorOptions = document.getElementById("authorOptions");
+let uiMessages = {};
+
+async function localizePage(languagePreference) {
+  const language = ArxivLocalization.resolveLanguage(
+    languagePreference,
+    chrome.i18n.getUILanguage()
+  );
+  const response = await fetch(chrome.runtime.getURL(`_locales/${language}/messages.json`));
+  if (!response.ok) throw new Error(`Could not load locale: ${language}`);
+  const messages = ArxivLocalization.flattenMessages(await response.json());
+  uiMessages = messages;
+  document.documentElement.lang = language;
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const translated = messages[element.dataset.i18n];
+    if (translated) element.textContent = translated;
+  });
+}
 
 function legacyTemplate(data) {
   if (ALLOWED_TEMPLATES.includes(data.filenameTemplate)) return data.filenameTemplate;
@@ -65,8 +82,11 @@ function updatePreview() {
 }
 
 chrome.storage.sync.get(
-  ["filenameTemplate", "format", "authorNameFormat", "bracketStyle", "saveAs"],
-  (data) => {
+  ["filenameTemplate", "format", "authorNameFormat", "bracketStyle", "saveAs", "language"],
+  async (data) => {
+    const language = ["en", "ko"].includes(data.language) ? data.language : "auto";
+    selectValue("language", language);
+    await localizePage(language);
     selectValue("filenameTemplate", legacyTemplate(data));
     selectValue("authorNameFormat", data.authorNameFormat === "full" ? "full" : "last");
     selectValue("bracketStyle", BRACKETS[data.bracketStyle] ? data.bracketStyle : "parentheses");
@@ -78,20 +98,28 @@ chrome.storage.sync.get(
 document.querySelectorAll('input[name="filenameTemplate"], input[name="authorNameFormat"], input[name="bracketStyle"]')
   .forEach((input) => input.addEventListener("change", updatePreview));
 
+document.querySelectorAll('input[name="language"]')
+  .forEach((input) => input.addEventListener("change", () => localizePage(input.value)));
+
 document.getElementById("save").addEventListener("click", () => {
+  const saveButton = document.getElementById("save");
   const filenameTemplate = selectedValue("filenameTemplate") || DEFAULT_TEMPLATE;
   const authorNameFormat = selectedValue("authorNameFormat") || "last";
   const bracketStyle = selectedValue("bracketStyle") || "parentheses";
+  const language = selectedValue("language") || "auto";
 
+  saveButton.disabled = true;
   chrome.storage.sync.set({
     filenameTemplate,
     authorNameFormat,
     bracketStyle,
+    language,
     saveAs: saveAsInput.checked
   }, () => {
+    saveButton.disabled = false;
     status.textContent = chrome.runtime.lastError
-      ? `저장 실패: ${chrome.runtime.lastError.message}`
-      : "✓ 저장했습니다";
+      ? `${uiMessages.saveFailed || chrome.i18n.getMessage("saveFailed")} ${chrome.runtime.lastError.message}`
+      : uiMessages.settingsSaved || chrome.i18n.getMessage("settingsSaved");
     if (!chrome.runtime.lastError) setTimeout(() => { status.textContent = ""; }, 1800);
   });
 });
