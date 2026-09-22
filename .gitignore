@@ -15,10 +15,4 @@ images/legacy/
 *.md
 !PRIVACY.md
 !README.md
-!CHANGELOG.md
-!CONTRIBUTING.md
-!CODE_OF_CONDUCT.md
-!SECURITY.md
-!.github/
-!.github/**/*.md
 local-docs/

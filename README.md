@@ -91,7 +91,7 @@ npm run check
 
 `npm run check` validates manifest references and translations, then runs the filename unit tests. The same checks run automatically on every pull request through GitHub Actions.
 
-Bug reports, translations, accessibility improvements, tests, and code contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Please report vulnerabilities privately as described in [SECURITY.md](SECURITY.md).
+Bug reports, translations, accessibility improvements, tests, and code contributions are welcome through GitHub Issues and pull requests. Please do not disclose security vulnerabilities in a public issue.
 
 ## Learn more / 자세히 보기
 
