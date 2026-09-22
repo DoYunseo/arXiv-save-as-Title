@@ -1,5 +1,9 @@
 # arXiv Save as Title
 
+[![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/kjdkgfhkdikbcklgdjkfbjgloafjmjoc.svg)](https://chromewebstore.google.com/detail/arxiv-save-as-title/kjdkgfhkdikbcklgdjkfbjgloafjmjoc)
+[![Chrome Web Store rating](https://img.shields.io/chrome-web-store/rating/kjdkgfhkdikbcklgdjkfbjgloafjmjoc.svg)](https://chromewebstore.google.com/detail/arxiv-save-as-title/kjdkgfhkdikbcklgdjkfbjgloafjmjoc)
+[![Chrome Web Store users](https://img.shields.io/chrome-web-store/users/kjdkgfhkdikbcklgdjkfbjgloafjmjoc.svg)](https://chromewebstore.google.com/detail/arxiv-save-as-title/kjdkgfhkdikbcklgdjkfbjgloafjmjoc)
+
 A Chrome extension that downloads arXiv PDFs with readable, customizable filenames.
 
 [Install from the Chrome Web Store](https://chromewebstore.google.com/detail/arxiv-save-as-title/kjdkgfhkdikbcklgdjkfbjgloafjmjoc)
