@@ -18,6 +18,8 @@
   "squareBrackets": { "message": "[ ] 대괄호" },
   "curlyBrackets": { "message": "{ } 중괄호" },
   "authorDisplay": { "message": "저자명 표시" },
+  "lastName": { "message": "성만" },
+  "fullName": { "message": "전체 이름" },
   "preview": { "message": "미리보기" },
   "askSaveLocation": { "message": "다운로드할 때 저장 위치 묻기" },
   "saveSettings": { "message": "설정 저장" },

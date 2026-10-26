@@ -18,6 +18,8 @@
   "squareBrackets": { "message": "[ ] Square" },
   "curlyBrackets": { "message": "{ } Curly" },
   "authorDisplay": { "message": "Author display" },
+  "lastName": { "message": "Last Name" },
+  "fullName": { "message": "Full Name" },
   "preview": { "message": "Preview" },
   "askSaveLocation": { "message": "Ask where to save each file" },
   "saveSettings": { "message": "Save settings" },
